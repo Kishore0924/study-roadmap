@@ -1,0 +1,579 @@
+{
+ "meta": {
+  "title": "LLM Security Fundamentals",
+  "subtitle": "Example plan · 5 days · about 4 hours a day",
+  "goalDate": "2027-01-08",
+  "goalChip": "Goal",
+  "countdownLabel": "Days to go",
+  "goalLabel": "Goal day",
+  "searchHint": "Search items, e.g. prompt injection, RAG or promptfoo",
+  "storageKey": "study-roadmap-llm-security-example",
+  "legendNote": "Optional items don't count toward hours. Links marked YouTube search open the top results for that talk."
+ },
+ "learner": {
+  "name": "",
+  "profile": "a security analyst learning how to attack and defend applications built on large language models",
+  "goal": "confidently reviewing and hardening LLM features at work",
+  "background": "They know common web vulnerabilities and basic Python."
+ },
+ "glossary": [
+  "OWASP",
+  "LLM01",
+  "LLM06",
+  "RAG",
+  "MCP",
+  "promptfoo",
+  "Gandalf",
+  "PortSwigger",
+  "Chroma",
+  "Prompt Guard",
+  "ReAct"
+ ],
+ "phases": [
+  {
+   "n": 1,
+   "title": "Know the risks",
+   "range": "Jan 4 to 5",
+   "tags": [
+    "OWASP LLM Top 10",
+    "Prompt injection",
+    "RAG data leakage"
+   ]
+  },
+  {
+   "n": 2,
+   "title": "Defend and prove it",
+   "range": "Jan 6 to 8",
+   "tags": [
+    "Over-privileged agents",
+    "Evals",
+    "Red-team gates"
+   ]
+  }
+ ],
+ "skills": {
+  "risks": "LLM risks (OWASP Top 10)",
+  "rag": "Retrieval security",
+  "agents": "Agent permissions and MCP",
+  "evals": "Evals and red-team gates"
+ },
+ "days": [
+  {
+   "d": "2027-01-04",
+   "ph": 1,
+   "sk": [
+    "risks"
+   ],
+   "th": "OWASP Top 10 for LLM Applications, hands-on",
+   "why": "Learn every item on the list, then break real apps with them.",
+   "items": [
+    {
+     "id": "p1",
+     "k": "watch",
+     "t": "OWASP Top 10 for LLM Applications 2025, walkthrough",
+     "s": "Any recent talk that covers all ten with examples.",
+     "m": 45,
+     "u": "https://www.youtube.com/results?search_query=OWASP%20Top%2010%20for%20LLM%20Applications%202025%20explained",
+     "yt": 1
+    },
+    {
+     "id": "p2",
+     "k": "read",
+     "t": "OWASP Top 10 for LLM Applications 2025",
+     "s": "Read all ten. Slow down on LLM01 prompt injection, LLM02 sensitive information disclosure, LLM05 improper output handling, LLM06 excessive agency and LLM07 system prompt leakage.",
+     "m": 40,
+     "u": "https://genai.owasp.org/llm-top-10/"
+    },
+    {
+     "id": "p3",
+     "k": "lab",
+     "t": "Gandalf (Lakera)",
+     "s": "Levels 1 to 8. Direct prompt injection and why output filters alone fail.",
+     "m": 50,
+     "u": "https://gandalf.lakera.ai/"
+    },
+    {
+     "id": "p4",
+     "k": "lab",
+     "t": "PortSwigger Web LLM attacks",
+     "s": "All four labs. The first is excessive agency: an LLM with API access that can delete users.",
+     "m": 75,
+     "u": "https://portswigger.net/web-security/llm-attacks"
+    },
+    {
+     "id": "p5",
+     "k": "build",
+     "t": "Map the Top 10 to an app you know",
+     "s": "One row per risk: where it shows up in the app, the control, and the test that proves the control works.",
+     "m": 30
+    },
+    {
+     "id": "p6",
+     "k": "lab",
+     "t": "Prompt Airlines (Wiz)",
+     "s": "Talk a chatbot into a free ticket.",
+     "m": 30,
+     "u": "https://promptairlines.com/",
+     "opt": 1
+    },
+    {
+     "id": "p7",
+     "k": "read",
+     "t": "MITRE ATLAS",
+     "s": "ATT&CK-style matrix for attacks on AI systems.",
+     "m": 30,
+     "u": "https://atlas.mitre.org/",
+     "opt": 1
+    }
+   ],
+   "q": "Which OWASP LLM risks get worse once the model can call tools?",
+   "a": "Excessive agency (LLM06) becomes the big one: a successful prompt injection (LLM01) now takes actions instead of just saying things. Improper output handling (LLM05) matters because model output becomes API arguments. Defenses shift from filtering text to limiting what tools can do: least privilege, allowlists and approval for writes."
+  },
+  {
+   "d": "2027-01-05",
+   "ph": 1,
+   "sk": [
+    "rag",
+    "risks"
+   ],
+   "th": "RAG data leakage and retrieval security",
+   "why": "Retrieval is where private data meets untrusted text. Build a leaky RAG, then fix it properly.",
+   "items": [
+    {
+     "id": "q1",
+     "k": "watch",
+     "t": "Simon Willison on prompt injection and the lethal trifecta",
+     "s": "Talk or interview, any recent one.",
+     "m": 30,
+     "u": "https://www.youtube.com/results?search_query=Simon%20Willison%20prompt%20injection%20lethal%20trifecta",
+     "yt": 1
+    },
+    {
+     "id": "q2",
+     "k": "read",
+     "t": "OWASP LLM02 and LLM08: sensitive disclosure, vector and embedding weaknesses",
+     "s": "Cross-tenant leaks, poisoned documents, embedding inversion, missing access control on the vector store.",
+     "m": 25,
+     "u": "https://genai.owasp.org/llmrisk/llm082025-vector-and-embedding-weaknesses/"
+    },
+    {
+     "id": "q3",
+     "k": "watch",
+     "t": "RAG security: data leakage and access control",
+     "s": "Any recent talk on permission-aware retrieval.",
+     "m": 30,
+     "u": "https://www.youtube.com/results?search_query=RAG%20security%20data%20leakage%20permission%20aware%20retrieval%20vector%20database%20access%20control",
+     "yt": 1
+    },
+    {
+     "id": "q4",
+     "k": "build",
+     "t": "Build a leaky RAG, then fix it",
+     "s": "Index about 30 docs from two teams into Chroma with owner metadata. Show naive search giving team B's docs to a team A user, then fix it by filtering on the caller's identity before anything reaches the model. Plant an instruction inside one doc and see what the agent does. Keep the tests.",
+     "m": 120
+    }
+   ],
+   "q": "An internal RAG bot hands an employee an HR doc they shouldn't see. Where did the control fail, and where should it live?",
+   "a": "Retrieval ignored the caller's permissions. Authorization belongs at retrieval time: filter chunks by the user's identity before they reach the model. A system prompt saying 'don't reveal HR data' is not a control. Also check the index kept each doc's ACLs, and log what was retrieved for whom."
+  },
+  {
+   "d": "2027-01-06",
+   "ph": 2,
+   "sk": [
+    "agents",
+    "risks"
+   ],
+   "th": "Over-privileged agents and MCP attacks",
+   "why": "An agent with tool access is a different risk object than a chatbot: injected text can now take actions.",
+   "items": [
+    {
+     "id": "r1",
+     "k": "read",
+     "t": "OWASP Top 10 for Agentic Applications (2026)",
+     "s": "Goal hijacking, tool misuse, identity and privilege abuse, memory poisoning. Note which ones apply to an agent you use.",
+     "m": 30,
+     "u": "https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/"
+    },
+    {
+     "id": "r2",
+     "k": "lab",
+     "t": "Damn Vulnerable MCP Server",
+     "s": "Easy and medium challenges: tool poisoning, excessive permissions, rug pulls.",
+     "m": 120,
+     "u": "https://github.com/harishsg993010/damn-vulnerable-MCP-server"
+    },
+    {
+     "id": "r3",
+     "k": "lab",
+     "t": "Damn Vulnerable LLM Agent",
+     "s": "Prompt injection against a ReAct agent's Thought and Action steps. Runs locally with your API key.",
+     "m": 45,
+     "u": "https://github.com/WithSecureLabs/damn-vulnerable-llm-agent"
+    },
+    {
+     "id": "r4",
+     "k": "build",
+     "t": "Threat-model a small agent",
+     "s": "Per tool: attacker-controlled inputs, worst-case action, the guardrail. Add a tool allowlist and split read and write permissions.",
+     "m": 45
+    },
+    {
+     "id": "r5",
+     "k": "read",
+     "t": "CSA MAESTRO: threat modeling for agentic AI",
+     "s": "A layered framework for agent threat models. Useful for design reviews.",
+     "m": 25,
+     "u": "https://cloudsecurityalliance.org/blog/2025/02/06/agentic-ai-threat-modeling-framework-maestro",
+     "opt": 1
+    }
+   ],
+   "q": "Why put an agent's read tools and write tools behind different permissions?",
+   "a": "A prompt-injected read path can't do damage if it physically can't write. Write access is used only after approval, so one bad model output can't change anything important."
+  },
+  {
+   "d": "2027-01-07",
+   "ph": 2,
+   "sk": [
+    "evals"
+   ],
+   "th": "Evals that prove the model works",
+   "why": "You can't defend what you can't measure. Evals turn a hunch into a number that catches regressions.",
+   "items": [
+    {
+     "id": "s1",
+     "k": "watch",
+     "t": "Evaluating AI Agents",
+     "s": "DeepLearning.AI with Arize. About 2 hours with notebooks.",
+     "m": 136,
+     "u": "https://www.deeplearning.ai/short-courses/evaluating-ai-agents/"
+    },
+    {
+     "id": "s2",
+     "k": "build",
+     "t": "Golden dataset and scorer",
+     "s": "Write 20 labeled test cases for a classifier prompt, score each class separately, and run it as a pytest check.",
+     "m": 75
+    }
+   ],
+   "q": "Your model is 95% accurate overall. Why might that still be unacceptable?",
+   "a": "Overall accuracy hides which mistakes it makes. Missing a dangerous case is far worse than flagging a safe one. Track precision and recall per class and set a hard floor on the dangerous error."
+  },
+  {
+   "d": "2027-01-08",
+   "ph": 2,
+   "sk": [
+    "evals",
+    "risks"
+   ],
+   "th": "Red-team gates, guardrails and prompt reviews",
+   "why": "Test injection resistance before anything ships, and review prompts like code.",
+   "items": [
+    {
+     "id": "t1",
+     "k": "watch",
+     "t": "Red Teaming LLM Applications",
+     "s": "DeepLearning.AI with Giskard.",
+     "m": 79,
+     "u": "https://www.deeplearning.ai/short-courses/red-teaming-llm-applications/"
+    },
+    {
+     "id": "t2",
+     "k": "lab",
+     "t": "promptfoo red team quickstart",
+     "s": "Point it at your agent and read the report.",
+     "m": 60,
+     "u": "https://www.promptfoo.dev/docs/red-team/quickstart/"
+    },
+    {
+     "id": "t3",
+     "k": "build",
+     "t": "Gate merges on injection resistance",
+     "s": "Run promptfoo and your own injection cases (poisoned documents and tool outputs) in GitHub Actions. Fail the pull request if the pass rate drops.",
+     "m": 75
+    },
+    {
+     "id": "t4",
+     "k": "watch",
+     "t": "LLM guardrails: input and output classifiers",
+     "s": "How tools like Llama Guard and Prompt Guard sit around a model.",
+     "m": 25,
+     "u": "https://www.youtube.com/results?search_query=LLM%20guardrails%20Llama%20Guard%20Prompt%20Guard%20tutorial",
+     "yt": 1
+    },
+    {
+     "id": "t5",
+     "k": "build",
+     "t": "Add a guardrail layer",
+     "s": "Run an injection classifier on tool outputs and retrieved docs before they reach the model, log every block, and add blocked cases to the red-team suite.",
+     "m": 45,
+     "u": "https://github.com/meta-llama/PurpleLlama"
+    },
+    {
+     "id": "t6",
+     "k": "build",
+     "t": "Review your own prompt like a PR",
+     "s": "Diff a system prompt against last week's version, write the comments a teammate would leave, and check every change has an eval behind it.",
+     "m": 20
+    },
+    {
+     "id": "t7",
+     "k": "lab",
+     "t": "garak LLM vulnerability scanner",
+     "s": "NVIDIA's open-source probe suite, a second opinion next to promptfoo.",
+     "m": 45,
+     "u": "https://github.com/NVIDIA/garak",
+     "opt": 1
+    }
+   ],
+   "q": "Why version prompts and agent logic like code?",
+   "a": "A one-word prompt change can shift behavior as much as a code change. Versioning plus evals in CI gives you review, history, rollback, and proof that nothing regressed."
+  }
+ ],
+ "readiness": {
+  "tab": "Readiness",
+  "kpi": "Readiness",
+  "kpiSub": "objectives you rate confident",
+  "intro": "Each learning objective, what it looks like in practice, and the proof you'll have. Coverage fills as you finish the linked days.",
+  "jobLabel": "In practice",
+  "proofLabel": "Proof you'll have",
+  "groups": [
+   {
+    "title": "Objectives",
+    "rows": [
+     {
+      "id": "o1",
+      "t": "Explain the OWASP LLM Top 10",
+      "jd": "Describe each risk in the OWASP Top 10 for LLM Applications and how it shows up in a real app.",
+      "job": "In a design review you can point at the exact place an app is exposed and name the risk.",
+      "proof": "Your Top 10 map for an app you know, plus solved Gandalf levels and PortSwigger labs.",
+      "days": [
+       "01-04"
+      ]
+     },
+     {
+      "id": "o2",
+      "t": "Stop RAG data leakage",
+      "jd": "Explain how retrieval leaks data across users and how permission-aware retrieval fixes it.",
+      "job": "You check that retrieval filters by the caller's permissions, not just the system prompt.",
+      "proof": "A leaky RAG you built, the fix, and the tests that prove it.",
+      "days": [
+       "01-05"
+      ]
+     },
+     {
+      "id": "o3",
+      "t": "Limit what agents can do",
+      "jd": "Threat-model an agent with tools, including MCP servers, and limit its permissions.",
+      "job": "Every tool has the least access it needs, and writes need approval.",
+      "proof": "A threat model with a tool allowlist and split read and write permissions.",
+      "days": [
+       "01-06"
+      ]
+     },
+     {
+      "id": "o4",
+      "t": "Prove it with evals and red-team gates",
+      "jd": "Measure model behavior with evals and block regressions in injection resistance before release.",
+      "job": "Prompt changes go through review and an automated gate, like code.",
+      "proof": "A golden dataset, a scorer, and a CI gate that fails on injection regressions.",
+      "days": [
+       "01-07",
+       "01-08"
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "project": {
+  "name": "guarded-rag",
+  "description": "A small retrieval chatbot you harden through the week: leak it, fix it, threat-model it, then prove the fixes with evals and a red-team gate. Milestones tick themselves when you finish the matching Build items.",
+  "brief": "a small retrieval-augmented chatbot over about 30 documents in Chroma, written in Python, which they leak and then harden with permission-aware retrieval, a tool allowlist, evals and a promptfoo red-team gate in GitHub Actions.",
+  "milestones": [
+   [
+    "Jan 4",
+    "Risk map for the app",
+    [
+     "p5"
+    ]
+   ],
+   [
+    "Jan 5",
+    "Leaky RAG, fixed and tested",
+    [
+     "q4"
+    ]
+   ],
+   [
+    "Jan 6",
+    "Threat model and allowlist",
+    [
+     "r4"
+    ]
+   ],
+   [
+    "Jan 7",
+    "Golden dataset and scorer",
+    [
+     "s2"
+    ]
+   ],
+   [
+    "Jan 8",
+    "Red-team gate in CI",
+    [
+     "t3"
+    ]
+   ]
+  ]
+ },
+ "exam": {
+  "questions": [
+   {
+    "d": "01-04",
+    "it": "p2",
+    "q": "Which OWASP LLM risk becomes far more dangerous once the model can call tools?",
+    "o": [
+     "LLM10 Unbounded consumption only",
+     "LLM06 Excessive agency",
+     "LLM09 Misinformation only",
+     "None; tools reduce risk"
+    ],
+    "a": 1,
+    "why": "With tools, a successful prompt injection can take actions, not just say things. Least privilege and approval for writes limit the damage."
+   },
+   {
+    "d": "01-04",
+    "it": "p2",
+    "q": "Model output is passed straight into a shell command. Which OWASP LLM risk is this?",
+    "o": [
+     "Sensitive information disclosure",
+     "Model theft",
+     "Improper output handling",
+     "Data poisoning"
+    ],
+    "a": 2,
+    "why": "Treat model output as untrusted input and validate it before it reaches a shell, SQL or HTML."
+   },
+   {
+    "d": "01-05",
+    "it": "q4",
+    "q": "An internal RAG bot shows an employee an HR document they shouldn't see. Where should the fix go?",
+    "o": [
+     "Add 'don't reveal HR data' to the system prompt",
+     "Use a bigger model",
+     "Filter retrieved chunks by the user's permissions before they reach the model",
+     "Delete the HR documents"
+    ],
+    "a": 2,
+    "why": "Authorization belongs at retrieval time. A system prompt is not a control."
+   },
+   {
+    "d": "01-05",
+    "it": "q1",
+    "q": "What are the three parts of the lethal trifecta?",
+    "o": [
+     "Private data, untrusted content, and a way to send data out",
+     "A large model, long context and many tools",
+     "No logging, no tests and no CI",
+     "Root access, open ports and weak passwords"
+    ],
+    "a": 0,
+    "why": "When an agent has all three, a prompt injection can leak data. Remove at least one of them."
+   },
+   {
+    "d": "01-06",
+    "it": "r4",
+    "q": "Why put an agent's read tools and write tools behind different permissions?",
+    "o": [
+     "Each tool needs its own login",
+     "It's cheaper",
+     "Writes run faster that way",
+     "A prompt-injected read path can't change anything if it physically can't write"
+    ],
+    "a": 3,
+    "why": "Separating them limits the blast radius. Write access is used only after approval."
+   },
+   {
+    "d": "01-06",
+    "it": "r2",
+    "q": "A third-party MCP server changes how its tools behave after you approved it. What is this called?",
+    "o": [
+     "A rug pull",
+     "A replay attack",
+     "Clickjacking",
+     "Phishing"
+    ],
+    "a": 0,
+    "why": "Pin versions and review changes to third-party tools before they reach your agents."
+   },
+   {
+    "d": "01-07",
+    "it": "s2",
+    "q": "Your model is 95% accurate overall. Why might that still not be good enough?",
+    "o": [
+     "95% is always good enough",
+     "Accuracy can't be measured for LLMs",
+     "It may still miss the dangerous cases, like letting a real attack through, so per-class recall matters",
+     "Evals only apply to training"
+    ],
+    "a": 2,
+    "why": "Track precision and recall per class and set a floor on the most dangerous kind of error."
+   },
+   {
+    "d": "01-07",
+    "it": "s2",
+    "q": "What is a golden dataset in agent evals?",
+    "o": [
+     "The model's training data",
+     "A fixed set of inputs with known correct outputs, used to score every change",
+     "A list of approved tools",
+     "A database backup"
+    ],
+    "a": 1,
+    "why": "It lets you measure accuracy and catch regressions on every pull request."
+   },
+   {
+    "d": "01-08",
+    "it": "t6",
+    "q": "Why version prompts in git and gate changes with evals?",
+    "o": [
+     "Git can run prompts",
+     "A small prompt change can shift behavior like a code change, so it needs review, history and tests",
+     "It hides prompts from attackers",
+     "Models require it"
+    ],
+    "a": 1,
+    "why": "Prompts as code gives you review, rollback and proof that nothing regressed."
+   },
+   {
+    "d": "01-08",
+    "it": "t5",
+    "q": "Where should a prompt-injection classifier (like Prompt Guard) run in an agent?",
+    "o": [
+     "Only on the final answer",
+     "Only on the system prompt",
+     "On untrusted inputs such as tool outputs and retrieved documents, before the model reads them",
+     "Nowhere; classifiers are unreliable"
+    ],
+    "a": 2,
+    "why": "Injections arrive through untrusted content, so screen it before the model sees it and log every block."
+   }
+  ]
+ },
+ "setup": [
+  {
+   "title": "Accounts you need",
+   "items": [
+    "[PortSwigger Web Security Academy](https://portswigger.net/web-security) (free)",
+    "[DeepLearning.AI](https://www.deeplearning.ai/) (free short courses)",
+    "GitHub, plus Python 3.11 or later",
+    "An LLM API key, or a local model through Ollama"
+   ]
+  },
+  {
+   "title": "If you fall behind",
+   "text": "Skip optional items first, then shorten the Build blocks. Protect day 2 and day 5: retrieval security and red-team gates are the heart of this plan."
+  }
+ ]
+}
