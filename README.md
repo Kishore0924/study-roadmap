@@ -39,16 +39,34 @@ to revisit.
 | **Help me build** | A step-by-step teacher for every hands-on build: what you're doing, why, the exact commands, how to check it worked, and what to do if it breaks |
 | **Readiness** | Every exam objective or job requirement, what it looks like in practice, the proof you'll have, and a self-rating |
 | **Final check** | A 50-question exam with a readiness mark, scores by phase, and a "Study this" link for every miss |
-| **Design** | Calm, Apple-inspired design with light and dark mode, phone layouts, keyboard support and reduced-motion support |
+| **Design** | Calm, Apple-inspired design with light and dark mode, an iOS-style tab bar on phones, keyboard support and reduced-motion support |
+
+Every feature, in detail: [references/features.md](references/features.md).
+
+## A closer look
 
 <table>
 <tr>
-<td><img src="docs/notes-panel.png" alt="Notes panel with headings and a Contents menu"></td>
-<td><img src="docs/final-check.png" alt="Final check results with links to the days to revisit"></td>
+<td width="50%" valign="top"><b>Explain it simply, with read-along</b><br><img src="docs/helper.png" alt="Explain it simply answering like you're 5, with the sentence being read aloud highlighted"></td>
+<td width="50%" valign="top"><b>Daily self-check</b><br><img src="docs/self-check.png" alt="A self-check answer reviewed as Partly right with short bullets"></td>
 </tr>
 <tr>
-<td><img src="docs/helper.png" alt="Self-check and Explain it simply with read-along"></td>
-<td><img src="docs/mobile.png" alt="Phone layout" width="300"></td>
+<td width="50%" valign="top"><b>Notes with headings and Contents</b><br><img src="docs/notes-panel.png" alt="Notes panel where every note has a heading, with the Contents menu open"></td>
+<td width="50%" valign="top"><b>Help me build</b><br><img src="docs/build-guide.png" alt="Build guide that plans the steps and teaches each one with code"></td>
+</tr>
+<tr>
+<td width="50%" valign="top"><b>Final check results</b><br><img src="docs/final-check.png" alt="Final check score with days to revisit and Study this links"></td>
+<td width="50%" valign="top"><b>Readiness</b><br><img src="docs/readiness.png" alt="Readiness tab with coverage bars and self-ratings for every objective"></td>
+</tr>
+</table>
+
+## On your phone
+
+<table>
+<tr>
+<td width="33%" valign="top" align="center"><b>Today</b><br><img src="docs/mobile.png" alt="Phone view of the summary tiles and calendar" width="260"></td>
+<td width="33%" valign="top" align="center"><b>The day's checklist</b><br><img src="docs/mobile-day.png" alt="Phone view of the day's checklist" width="260"></td>
+<td width="33%" valign="top" align="center"><b>Notes</b><br><img src="docs/mobile-notes.png" alt="Phone view of the notes panel" width="260"></td>
 </tr>
 </table>
 
