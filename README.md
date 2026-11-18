@@ -74,8 +74,8 @@ Every feature, in detail: [references/features.md](references/features.md).
 
 ### Claude app (claude.ai or the desktop app)
 
-1. Download [`dist/study-roadmap.zip`](dist/study-roadmap.zip) from this repository. Don't unzip it.
-2. In Claude, open **Customize > Skills**, add a skill, and upload the ZIP.
+1. Download [**study-roadmap.zip**](https://github.com/Kishore0924/study-roadmap/releases/latest/download/study-roadmap.zip) from the [latest release](https://github.com/Kishore0924/study-roadmap/releases/latest). Don't unzip it.
+2. In Claude, open **Customize**, then **Skills**, add a skill, and upload the ZIP.
 3. Turn the skill on, and make sure code execution is turned on in your Claude settings.
 
 ### Claude Code
@@ -123,7 +123,7 @@ your progress.
 | `references/` | Intake questions, research rules, plan schema, publishing |
 | `examples/llm-security-5-day.json` | A small, complete example plan |
 | `docs/` | Screenshots for this page |
-| `dist/study-roadmap.zip` | The skill, ready to upload to Claude |
+| `dist/study-roadmap.zip` | The skill, ready to upload to Claude (also attached to each release) |
 
 Claude only ever writes a plan JSON file. `build_dashboard.py` validates it (dates, ids, coverage,
 50 well-formed exam questions mapped to real days, no em dashes or arrows) and drops it into the
