@@ -9,7 +9,9 @@ explains anything like you're 5, daily self-checks, voice notes with AI clean-up
 guides, natural read-aloud, and a 50-question final exam that links every miss back to the exact day
 to revisit.
 
-![Study Roadmap dashboard](docs/dashboard-light.png)
+![Study Roadmap dashboard in light mode](docs/dashboard-light.png)
+
+![Study Roadmap dashboard in dark mode](docs/dashboard-dark.png)
 
 ## How it works
 
@@ -46,7 +48,7 @@ to revisit.
 </tr>
 <tr>
 <td><img src="docs/helper.png" alt="Self-check and Explain it simply with read-along"></td>
-<td><img src="docs/dashboard-dark.png" alt="Dark mode"></td>
+<td><img src="docs/mobile.png" alt="Phone layout" width="300"></td>
 </tr>
 </table>
 
