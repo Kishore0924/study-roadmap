@@ -1,7 +1,8 @@
 # What the dashboard does
 
-Use this to write the hand-off message and to answer questions about the dashboard. Every feature
-is already in the template. Nothing here needs to be built.
+Everything a Study Roadmap dashboard can do. Every feature is already built into the template, so
+every dashboard has all of them. (Claude also uses this page for its hand-off message and to answer
+questions about the dashboard.)
 
 ## Tabs
 
@@ -44,6 +45,16 @@ is already in the template. Nothing here needs to be built.
   Getting there, below 50 Not ready yet), scores by phase, days to revisit, and every miss with the
   right answer, why, and a "Study this" link that opens that exact day and highlights the item.
 - Retake, a history of attempts, and "Write a new set of 50" for fresh questions from Claude.
+
+## Look and feel
+
+- Calm, Apple-inspired design: system fonts, soft grouped cards, round checkboxes, progress rings
+  on the calendar, and a floating glass tab bar.
+- Light and dark mode follow your device.
+- On phones, the tabs become an iOS-style tab bar with icons at the bottom of the screen, and side
+  panels open full screen.
+- Keyboard friendly, with visible focus, and it respects reduced motion, reduced transparency and
+  increased contrast settings.
 
 ## Saving
 
