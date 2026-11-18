@@ -33,7 +33,7 @@ const T={ speak(w,o){ const lines=typeof w==="string"?[{text:w}]:w; if(cur){ con
   async setRate(){}, active(){ return !!cur; }, async voices(){ return ["buttery","airy","glassy","rounded"]; }, onState(){ return ()=>{}; }, onLine(h){ LH.push(h); return ()=>{}; }, onPosition(h){ PH.push(h); return ()=>{}; } };
 window.claude={use: async n => n==="sample" ? S : n==="tts" ? T : null};
 """
-SKELETON = '<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><style>[hidden]{display:none!important}</style></head><body><script>{stub}</script>{page}</body></html>'
+SKELETON = '<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head><body><script>{stub}</script>{page}</body></html>'
 
 
 def main():
